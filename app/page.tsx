@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ProductCard from "./components/ProductCard";
 
 export default function Home() {
 	return (
@@ -11,6 +12,9 @@ export default function Home() {
 				</li>
 				<li>
 					<Link href="/users">Users - Client side navigation</Link>
+				</li>
+				<li>
+					<ProductCard />
 				</li>
 			</ul>
 		</>
