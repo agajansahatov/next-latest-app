@@ -5,13 +5,8 @@ const AddToCart = () => {
 	return (
 		<div>
 			<button
+				className="btn btn-primary"
 				onClick={() => console.log("Clicked to Cart")}
-				style={{
-					backgroundColor: "gray",
-					padding: 5,
-					borderRadius: 3,
-					cursor: "pointer",
-				}}
 			>
 				Add too Cart
 			</button>
