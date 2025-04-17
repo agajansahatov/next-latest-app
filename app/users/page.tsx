@@ -6,7 +6,14 @@ interface User {
 }
 
 const UsersPage = async () => {
-	const res = await fetch("https://jsonplaceholder.typicode.com/users");
+	const res = await fetch(
+		"https://jsonplaceholder.typicode.com/users",
+		// By default it caches
+		// { cache: 'no-store'}
+		{ next: { revalidate: 10 } },
+	);
+	// This cache functionality is only implemented in the fetch function, not in other 3rd party libraries like axios
+
 	const users: User[] = await res.json();
 
 	return (
