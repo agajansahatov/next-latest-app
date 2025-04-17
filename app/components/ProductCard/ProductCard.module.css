@@ -1,0 +1,10 @@
+.cardContainer {
+	padding: 1rem;
+	border: 1px solid #ccc;
+	max-width: 250px;
+	border-radius: 10px;
+}
+
+.cardContainer h1 {
+	padding: 1rem 0;
+}
