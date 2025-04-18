@@ -10,10 +10,10 @@ const UsersPage = async ({ searchParams }: Props) => {
 	const { sortOrder } = await searchParams;
 
 	return (
-		<>
-			<h1 className="text-center text-3xl p-5">Users List</h1>
+		<div className="place-items-center">
+			<h1>Users Page</h1>
 			<UserTable sortOrder={sortOrder} />
-		</>
+		</div>
 	);
 };
 

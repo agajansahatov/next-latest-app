@@ -3,8 +3,8 @@ import AddToCart from "../AddToCart";
 
 const ProductCard = () => {
 	return (
-		<div>
-			<h1>Product Card</h1>
+		<div className="p-5 bg-slate-400 inline-block">
+			<h1 className="text-center pb-5 text-2xl">Product Card</h1>
 			<AddToCart />
 		</div>
 	);
