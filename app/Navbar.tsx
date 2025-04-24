@@ -16,6 +16,9 @@ const Navbar = () => {
 			<Link href="/products" className="px-3">
 				Products
 			</Link>
+			<Link href="/upload" className="px-3">
+				Upload
+			</Link>
 		</div>
 	);
 };
