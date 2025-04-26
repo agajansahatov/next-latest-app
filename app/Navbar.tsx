@@ -25,7 +25,10 @@ const Navbar = () => {
 			</Link>
 			<div className="px-3 ml-auto cursor-pointer hover:underline">
 				{status === "loading" && (
-					<span className="loading loading-sm loading-ring"></span>
+					<div className="flex items-center">
+						<span className="loading loading-xl loading-dots mr-6"></span>
+						<span className="loading loading-xl loading-ring"></span>
+					</div>
 				)}
 				{status === "authenticated" && (
 					<div className="flex items-center">
