@@ -19,6 +19,9 @@ const Navbar = () => {
 			<Link href="/upload" className="px-3">
 				Upload
 			</Link>
+			<Link href="/api/auth/signin" className="px-3">
+				Login
+			</Link>
 		</div>
 	);
 };
