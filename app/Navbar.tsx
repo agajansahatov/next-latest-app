@@ -23,7 +23,7 @@ const Navbar = () => {
 			<Link href="/upload" className="px-3 hover:underline">
 				Upload
 			</Link>
-			<div className="px-3 ml-auto cursor-pointer hover:underline">
+			<div className="px-3 ml-auto">
 				{status === "loading" && (
 					<div className="flex items-center">
 						<span className="loading loading-xl loading-dots mr-6"></span>
@@ -32,7 +32,10 @@ const Navbar = () => {
 				)}
 				{status === "authenticated" && (
 					<div className="flex items-center">
-						<span className="pr-6">{session.user!.name}</span>
+						<Link href="/api/auth/signout" className="px-6 hover:underline">
+							Sign Out
+						</Link>
+						<span className="pr-3 cursor-pointer">{session.user!.name}</span>
 						<img
 							src={
 								session.user?.image ??
@@ -41,7 +44,7 @@ const Navbar = () => {
 								}&background=random`
 							}
 							alt={session.user?.name ?? "Avatar"}
-							className="w-9 h-9 rounded-full"
+							className="w-9 h-9 rounded-full cursor-pointer"
 						/>
 					</div>
 				)}
