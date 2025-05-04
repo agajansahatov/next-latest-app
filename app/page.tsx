@@ -1,20 +1,22 @@
-import { getServerSession } from "next-auth";
-import { authOptions } from "./api/auth/[...nextauth]/route";
+import Image from "next/image";
+import coffee from "@/public/images/coffee.jpg";
 
-export default async function Home() {
-	const session = await getServerSession(authOptions);
-
+export default function Home() {
 	return (
-		<>
-			<div className="place-items-center">
-				<h1>
-					Hello{" "}
-					<span>
-						{session ? (session.user ? session.user.name : "World!") : "World!"}
-					</span>
-				</h1>
-				<h2>You are in the home page</h2>
-			</div>
-		</>
+		<main>
+			<Image src={coffee} alt="Coffee" width={400} />
+			<br />
+			<figure className="relative h-96" style={{ width: 400 }}>
+				<Image
+					src="https://bit.ly/react-cover"
+					alt="React Cover"
+					fill
+					className="object-contain"
+					sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+					quality={100}
+					priority
+				/>
+			</figure>
+		</main>
 	);
 }
