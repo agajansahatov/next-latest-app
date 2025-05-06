@@ -4,6 +4,8 @@ import coffee from "@/public/images/coffee.jpg";
 export default function Home() {
 	return (
 		<main>
+			<h1>Hello World!</h1>
+			<br />
 			<Image src={coffee} alt="Coffee" width={400} />
 			<br />
 			<figure className="relative h-96" style={{ width: 400 }}>

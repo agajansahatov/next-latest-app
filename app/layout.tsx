@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Roboto } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "./Navbar";
 import AuthProvider from "./auth/Provider";
-import Script from "next/script";
 import GoogleAnalyticsScript from "./GoogleAnalyticsScript";
 
 const geistSans = Geist({
@@ -14,6 +14,17 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
 	variable: "--font-geist-mono",
 	subsets: ["latin"],
+});
+
+const roboto = Roboto({
+	subsets: ["latin"],
+	weight: ["400", "500"],
+	variable: "--font-roboto",
+});
+
+const poppins = localFont({
+	src: "../public/fonts/poppins-regular-webfont.woff2",
+	variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {
@@ -31,7 +42,7 @@ export default function RootLayout({
 			<GoogleAnalyticsScript />
 			<title>Next Latest App</title>
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+				className={`${poppins.variable} ${roboto.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
 				<AuthProvider>
 					<Navbar />
