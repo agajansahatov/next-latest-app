@@ -1,8 +1,23 @@
+"use client";
 import Image from "next/image";
 import coffee from "@/public/images/coffee.jpg";
-import { Metadata } from "next";
+// This is only for demonstration.
+// We should only use the lazy loading for large heavy components
+import dynamic from "next/dynamic";
+const HeavyComponent = dynamic(() => import("./components/HeavyComponent"), {
+	// When importing client components using dynamic function,
+	// By default they are pre-rendered on the server
+	// if we use some browser events or access some browser apis , on the server they might not be available,
+	// so in those situations, we disable ssr here:
+	ssr: false,
+	// showing the loading icon
+	loading: () => <span className="loading loading-spinner"></span>,
+});
+import { useState } from "react";
 
 export default function Home() {
+	const [isVisible, setVisible] = useState(false);
+
 	return (
 		<main>
 			<h1>Hello World!</h1>
@@ -20,6 +35,15 @@ export default function Home() {
 					priority
 				/>
 			</figure>
+			<button
+				className="btn btn-accent"
+				onClick={() => (isVisible ? setVisible(false) : setVisible(true))}
+			>
+				{isVisible ? "Hide" : "Show"}
+			</button>
+			<br />
+			<br />
+			{isVisible && <HeavyComponent />}
 		</main>
 	);
 }
