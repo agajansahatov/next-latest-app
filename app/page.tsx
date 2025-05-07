@@ -1,5 +1,6 @@
 import Image from "next/image";
 import coffee from "@/public/images/coffee.jpg";
+import { Metadata } from "next";
 
 export default function Home() {
 	return (
@@ -22,3 +23,13 @@ export default function Home() {
 		</main>
 	);
 }
+
+// To set the page title dynamically
+// export async function generateMetadata(): Promise<Metadata> {
+// 	const product = "fetch a product from home page";
+
+// 	return {
+// 		title: "Product Home Page",
+// 		description: "...",
+// 	};
+// }
