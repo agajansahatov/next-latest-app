@@ -6,7 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "./generated/client"
+  // output   = "./generated/client"
 }
 
 datasource db {
@@ -64,4 +64,10 @@ model VerificationToken {
 
   @@unique([identifier, token])
   @@map("verification_tokens")
+}
+
+model Product {
+  id    Int    @id @default(autoincrement())
+  name  String
+  price Float
 }

@@ -1,5 +1,6 @@
 "use client";
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -35,17 +36,18 @@ const Navbar = () => {
 						<Link href="/api/auth/signout" className="px-6 hover:underline">
 							Sign Out
 						</Link>
-						<span className="pr-3 cursor-pointer">{session.user!.name}</span>
-						<img
-							src={
-								session.user?.image ??
-								`https://ui-avatars.com/api/?name=${
-									session.user?.name ?? "User"
-								}&background=random`
-							}
-							alt={session.user?.name ?? "Avatar"}
-							className="w-9 h-9 rounded-full cursor-pointer"
-						/>
+						<span className="pr-3 cursor-pointer">
+							{session.user!.name || "Anonymous"}
+						</span>
+						{session.user!.image && (
+							<Image
+								src={session.user!.image}
+								alt="Avatar"
+								className="rounded-full cursor-pointer"
+								width={36}
+								height={36}
+							/>
+						)}
 					</div>
 				)}
 				{status === "unauthenticated" && (
